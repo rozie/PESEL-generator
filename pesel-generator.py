@@ -41,7 +41,6 @@ def main():
         print("Years over 1900 are supported")
         exit()
     for year in range(start, end+1):
-        print(year)
         year_last = year % 100
         for month in range(1, 12+1):
             if month == 2:
@@ -54,7 +53,7 @@ def main():
             if year > 1999:
                 month += 20
             for day in range(1, days_count+1):
-                for number in range(0, 10000+1):
+                for number in range(0, 10000):
                     pesel = str(year_last * 100000000 + month * 1000000 + day * 10000 + number).zfill(10)
                     checksum = pesel_checksum(pesel)
                     pesel += str(checksum)

@@ -5,7 +5,7 @@ Description
 ---------
 PESEL number generator is a tool to generate all valid PESEL numbers for given
 years. It's intended to generate dictionary to make dictionary attack test for
-password protected documents faster.
+password protected documents faster. Works also for years >2000.
 
 Inspired by:
 https://informatykzakladowy.pl/szyfrowanie-dokumentow-numerem-pesel-nie-chroni-ich-zawartosci/

@@ -37,8 +37,8 @@ def main():
     if end < start:
         start = args.end_year
         end = args.start_year
-    if start < 1900:
-        print("Years over 1900 are supported")
+    if start < 1800 or end > 2299:
+        print("Years between 1800 and 2299 are supported")
         exit()
     for year in range(start, end+1):
         year_last = year % 100
@@ -50,8 +50,16 @@ def main():
                     days_count = 28
             else:
                 days_count = days_month_count.get(month, 31)
-            if year > 1999:
+
+            if 1800 <= year < 1900:
+                month += 80
+            elif 2000 <= year < 2100:
                 month += 20
+            elif 2100 <= year < 2200:
+               month += 40
+            elif 2200 <= year < 2300:
+               month += 60
+
             for day in range(1, days_count+1):
                 for number in range(0, 10000):
                     pesel = str(year_last * 100000000 + month * 1000000 + day * 10000 + number).zfill(10)

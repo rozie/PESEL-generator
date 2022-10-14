@@ -3,7 +3,6 @@
 
 import argparse
 import calendar
-from re import T
 
 days_month_count = {
     1: 31,
@@ -41,6 +40,14 @@ def check_golden(pesel):
 
     # is palindrome
     if pesel_list == pesel_list[::-1]:
+        is_golden = True
+
+    # only one change
+    changes_count = 0
+    for i in range(0, len(pesel_list)-1):
+        if pesel_list[i] != pesel_list[i+1]:
+            changes_count += 1
+    if changes_count == 1:
         is_golden = True
 
     return is_golden
